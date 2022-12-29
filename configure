@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+packages=$(cat BashJavaC.lipm)
+echo "" > build.sh
+echo "" > super.sh
+for package in ${packages[@]}
+do
+  echo "cp configure.bash ../$package/configure" >> build.sh
+  echo "cd ../$package/ && ./configure && sh build.sh" >> super.sh
+done
